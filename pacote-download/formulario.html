@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="formulario.css" media="screen">
+    <title>Lista de jogos</title>
+</head>
+
+<body>
+    <div>
+        <H1 id="titulo">Cadastro de Jogos</H1>
+        <p id="subtitulo"><strong>Preencha os dados com as informações sobre o jogo</strong></p>
+        <br>
+    </div>
+
+    <form method="POST" action="cadastra_jogo.php">
+        <fieldset class="grupo">
+
+            <div class="campo">
+                <label for="nome"><strong>Nome do Jogo</strong></label>
+                <input type="text" name="nome" id="nome" required>
+            </div>
+
+            <div class="campo">
+                <label for="desenvolvedora"><strong>Desenvolvedora</strong></label>
+                <input type="text" name="desenvolvedora" id="desenvolvedora" required>
+            </div>
+
+        </fieldset>
+            <br>
+            <div class="campo">
+                <label><strong>Gênero do Jogo</strong></label>
+                <label>
+                    <input type="radio" name="gen" value="acao-e-aventura" checked>Ação e aventura
+                </label>
+                <label>
+                    <input type="radio" name="gen" value="rpg">RPG
+                </label>
+                <label>
+                    <input type="radio" name="gen" value="esportes">Esportes
+                </label>
+                <label>
+                    <input type="radio" name="gen" value="corrida">Corrida
+                </label>
+                <label>
+                    <input type="radio" name="gen" value="estrategia">Estratégia
+                </label>
+                <label>
+                    <input type="radio" name="gen" value="luta">Luta
+                </label>
+            </div>
+            <br>
+
+            <div class="campo">
+                <label for="finalizado"><strong>Já finalizou?</strong></label>
+                <select id="finalizado" name="finalizado" required>
+                    <option selected disabled value="">Selecione</option>
+                    <option>Sim</option>
+                    <option>Não</option>
+                </select>
+            </div>
+            <br>
+
+        <fieldset class="grupo">
+            <div id="check">
+                <label><strong>Selecione a Plataforma</strong></label>
+                <input type="checkbox" name="plataforma[]" id="opcao1" value="Playstation">
+                <label for="opcao1">Playstation</label>
+                <input type="checkbox" name="plataforma[]" id="opcao2" value="Xbox">
+                <label for="opcao2">Xbox</label>
+                <input type="checkbox" name="plataforma[]" id="opcao3" value="PC">
+                <label for="opcao3">PC</label>
+                <input type="checkbox" name="plataforma[]" id="opcao4" value="Nintendo">
+                <label for="opcao4">Nintendo</label>
+                <input type="checkbox" name="plataforma[]" id="opcao5" value="Outro">
+                <label for="opcao5">Outro</label>
+            </div>
+        </fieldset>
+        <br>
+
+        <fieldset class="grupo">
+        <div class="campo">
+            <label for="data"><strong>Data de lançamento</strong></label>
+            <input type="date" id="data" name="data">
+        </div>
+
+        <div class="campo">
+            <label for="tempo"><strong>Quanto tempo para finalizar (h)?</strong></label>
+            <input type="number" id="tempo" name="tempo" style="width:3em">
+        </div>
+        </fieldset>
+        <br>
+
+        <div class="campo">
+            <label for="descricao"><strong>Escreva uma breve descrição sobre o jogo</strong></label>
+            <br>
+            <textarea name="descricao" id="descricao" rows="10" style="width:30em"></textarea>
+        </div>
+        <br>
+        <button class="botao" type="submit" onsubmit="">Cadastrar</button>
+
+    </form>
+</body>
+
+</html>
