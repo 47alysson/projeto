@@ -24,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     $sql = "UPDATE jogos SET nome='$nome', desenvolvedora='$desenvolvedora', genero='$genero', finalizado='$finalizado', plataforma='$plataforma', data_lancamento='$data', tempo='$tempo', descricao='$descricao' WHERE id=$id";
     
     if (mysqli_query($conn, $sql)) {
-        echo "Jogo atualizado com sucesso!";
-        echo "<a href='visualiza_jogos.php'>Voltar</a>";
+        echo "<center><h1>Jogo atualizado com sucesso!</h1>";
+        echo "<a href='visualiza_jogos.php'><input type='button' value='Voltar'></a></center>";
     } else {
         echo "Erro ao atualizar jogo: " . mysqli_error($conn);
     }
