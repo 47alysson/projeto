@@ -4,8 +4,8 @@ require('conecta.php');
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     $id = $_GET['id'];
     $result = mysqli_query($conn, "SELECT * FROM jogos WHERE id = $id");
-    $jogo = mysqli_fetch_array($result);
-
+    $jogo = mysqli_fetch_assoc($result);
+    
     if (!$jogo) {
         echo "Jogo não encontrado!";
         exit;
@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     $descricao = $_POST['descricao'];
 
     $sql = "UPDATE jogos SET nome='$nome', desenvolvedora='$desenvolvedora', genero='$genero', finalizado='$finalizado', plataforma='$plataforma', data_lancamento='$data', tempo='$tempo', descricao='$descricao' WHERE id=$id";
+    
     if (mysqli_query($conn, $sql)) {
         echo "Jogo atualizado com sucesso!";
         echo "<a href='visualiza_jogos.php'>Voltar</a>";
@@ -54,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     </div>
 
     <form method="POST" action="editar_jogo.php">
-        <input type="hidden" name="id" value="<?php echo isset($jogo['ID']) ? $jogo['ID'] : ''; ?>">
+        <input type="hidden" name="id" value="<?php echo $jogo['id']?>">
         <fieldset class="grupo">
 
             <div class="campo">
